@@ -1,4 +1,3 @@
-for alpha in range(ord('a'), ord('z')):
+#!/usr/bin/python3
+for alpha in range(ord('a'), ord('z') + 1):
     print("{:c}".format(alpha), end="")
-    if alpha == 'y':
-        print("yz")
