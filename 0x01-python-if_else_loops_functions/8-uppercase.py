@@ -4,6 +4,6 @@ def uppercase(str):
         if i == " ":
             print(" ", end="")
 
-        elif i >= 97 and i <= 122:
+        elif ord(i) >= 97 and ord(i) <= 122:
             i = char(ord(i) - 32)
             print("{}".format(i), end="")
