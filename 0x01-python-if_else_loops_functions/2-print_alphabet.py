@@ -2,5 +2,5 @@
 number = 97
 
 while number <= 122:
-    print(f"{number:c}", end="")
+    print("{:c}".format(number), end="")
     number += 1
