@@ -68,13 +68,15 @@ class Square:
              value (int): the position of the square
 
         """
-        if len(value) > 2:
+        if not isinstance(value, tuple):
             raise TypeError("position must be a tuple of 2 positive integers")
-        else:
-            for i in value:
-                if i < 0:
-                    raise TypeError("position must be a tuple of 2 positive integers")
-            self.__position = value
+        elif len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif not isinstance(value[0], int) or not isinstance(value[1], int):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif value[0] < 0 or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def my_print(self):
         if self.__size == 0:
