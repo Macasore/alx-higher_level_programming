@@ -51,3 +51,8 @@ TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
 
 >>> add_integer(-2, -4)
 -6
+
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
