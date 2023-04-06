@@ -21,11 +21,11 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     new_text = text.strip()
+    special_characters = ['.', ':', '?']
     for i, t in enumerate(new_text):
-        if (t == ' ' and new_text[i-1] in ['.', ':', '?']):
+        if (t == ' ' and new_text[i-1] in special_characters):
             continue
         else:
             print(t, end="")
-        if t in ['.', ':', "?"]:
-            print()
-            print()
+        if t in special_characters:
+            print("\n")
