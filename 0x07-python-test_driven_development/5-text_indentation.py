@@ -24,7 +24,7 @@ def text_indentation(text):
     special_characters = ['.', ':', '?']
     nextline = False
     for i, t in enumerate(new_text):
-        if (t == ' ' and nextline == True):
+        if (t == ' ' and nextline is True):
             continue
         else:
             print(t, end="")
