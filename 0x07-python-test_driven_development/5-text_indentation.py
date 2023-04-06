@@ -25,6 +25,7 @@ def text_indentation(text):
             print(t, end="")
             print("\n")
             continue
-        elif (t == " " and text[i-1] in ['.', ':', "?"]):
+        if (t == " " and text[i-1] in ['.', ':', "?"]):
             continue
-        print(t, end="")
+        else:
+            print(t, end="")
