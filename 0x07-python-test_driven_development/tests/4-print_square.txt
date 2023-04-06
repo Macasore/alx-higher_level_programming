@@ -1,0 +1,58 @@
+===========================================================
+print_square test file
+===========================================================
+
+Using the print_square(size) function
+-----------------------------------------------------------
+
+>>> print_square = __import__('4-print_square').print_square
+
+
+:: test 1 - size is an integer
+-----------------------------------------------------------
+	>>> print_square(5)
+	#####
+	#####
+	#####
+	#####
+	#####
+
+------------------------------------------------------------
+
+
+:: test 2 - size is a float
+------------------------------------------------------------
+	>>> print_square(2.4)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+--------------------------------------------------------------
+
+
+:: test 3 - size is not given
+-------------------------------------------------------------
+	>>> print_square()
+	Traceback (most recent call last):
+	...
+	TypeError: print_square() missing 1 required positional argument: 'size'
+
+----------------------------------------------------------------------------
+
+
+:: test 4 - size is a negative integer
+-----------------------------------------------------------------------
+	>>> print_square(-6)
+	Traceback (most recent call last):
+	...
+	ValueError: size must be >= 0
+
+-----------------------------------------------------------------------------
+
+
+:: test 5 - size is a negative float
+---------------------------------------------------------------------------
+	>>> print_square(-3.4)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
