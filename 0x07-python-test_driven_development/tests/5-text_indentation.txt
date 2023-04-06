@@ -1,0 +1,56 @@
+===============================================================================
+text_indentation test file
+===============================================================================
+
+using the 'text_indentation(text)' function
+-------------------------------------------------------------------------------
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+:: test 1 - a string was given
+-------------------------------------------------------------------------------
+	>>> text_indentation("my name. is david? i am a software developer that uses: python. java. C. and git")
+	my name.
+	<BLANKLINE>
+	is david?
+	<BLANKLINE>
+	i am a software developer that uses:
+	<BLANKLINE>
+	python.
+	<BLANKLINE>
+	java.
+	<BLANKLINE>
+	C.
+	<BLANKLINE>
+	and git
+
+--------------------------------------------------------------------------------
+
+
+:: test 2 - no string was given
+-------------------------------------------------------------------------------
+	>>> text_indentation()
+	Traceback (most recent call last):
+	...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+---------------------------------------------------------------------------------
+
+
+:: test 3 - an integer was given
+--------------------------------------------------------------------------------
+	>>> text_indentation(3)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+-------------------------------------------------------------------------------
+
+
+:: test 4 - a float was given
+---------------------------------------------------------------------------------
+	>>> text_indentation(3.5)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
