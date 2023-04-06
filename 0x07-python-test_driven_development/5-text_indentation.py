@@ -20,12 +20,12 @@ def text_indentation(text):
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    for i, t in enumerate(text):
-        if t in ['.', ':', "?"]:
-            print(t, end="")
-            print("\n")
-            continue
-        if (t == " " and text[i-1] in ['.', ':', "?"]):
+    new_text = text.strip()
+    for i, t in enumerate(new_text):
+        if (t == ' ' and text[i-1] in ['.', ':', '?']):
             continue
         else:
             print(t, end="")
+        if t in ['.', ':', "?"]:
+            print("\n")
+
