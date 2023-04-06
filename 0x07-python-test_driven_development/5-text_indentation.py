@@ -22,10 +22,13 @@ def text_indentation(text):
         raise TypeError("text must be a string")
     new_text = text.strip()
     special_characters = ['.', ':', '?']
+    nextline = False
     for i, t in enumerate(new_text):
-        if (t == ' ' and new_text[i-1] in special_characters):
+        if (t == ' ' and nextline == True):
             continue
         else:
             print(t, end="")
+            nextline = False
         if t in special_characters:
             print("\n")
+            nextline = True
