@@ -1,31 +1,33 @@
 #!/usr/bin/python3
-""" Text indentation module
-
-This module contains a function that seperates a string based on
-some special characters
-
+"""Text Indentation Module
+    This Module contains code for the text indentation task at ALX
 """
 
 
 def text_indentation(text):
     """text_indentation function
-
-    This function prints a text with two new lines after
-    some special caracters
-
-    Special characters - '.', '?', ':'
-
-    Args:
-       text (str): the text to be printed
+        The text_indentation function prints a 2 new line characters
+        when it encounters any of these characters ., ? and :
+        Args:
+                text (string): String containing text
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    new_text = text.strip()
-    for i, t in enumerate(new_text):
-        if (t == ' ' and text[i-1] in ['.', ':', '?']):
+
+    trimmed_text = text.strip()
+    new_line = False
+    delimeters = ['.', ':', '?']
+
+    for c in trimmed_text:
+
+        if new_line and c == ' ':
+            # skip spaces at beginning of line
             continue
         else:
-            print(t, end="")
-        if t in ['.', ':', "?"]:
-            print("\n")
+            new_line = False
+            print(c, end="")
 
+            # print 2 new lines if is delimeter
+        if c in delimeters:
+            print("\n")
+            new_line = True
