@@ -54,3 +54,35 @@ class TestMaxInteger(unittest.TestCase):
         checks when the list contains only one value
         """
         self.assertEqual(max_integer([4]), 4)
+
+    def test_maxatbeg(self):
+        """test_maxatbeg function
+
+        checks when max is at the beginning
+        """
+        self.assertEqual(max_integer([55, 4, 54, 5, 3]), 55)
+
+    def test_maxatend(self):
+        """test_maxatend function
+
+        checks when max is at the end
+        """
+        self.assertEqual(max_integer([1, 4, 54, 5, 300]), 300)
+
+    def test_onegative(self):
+        """test_one function
+
+        checks when there's only one negative
+        """
+        self.assertEqual(max_integer([-2, 3, 4, 5]), 5)
+
+    def test_just1neg(self):
+        """test_just1neg function
+
+        checks when the list contains only one negative value
+        """
+        self.assertEqual(max_integer([-4]), -4)
+
+
+
+
