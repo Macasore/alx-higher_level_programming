@@ -3,6 +3,7 @@ from models.base import Base
 
 
 class TestBase(unittest.TestCase):
+    """TestBase class"""
     def test_idnone(self):
         """test_id function
         Tests that the logic for id works as
