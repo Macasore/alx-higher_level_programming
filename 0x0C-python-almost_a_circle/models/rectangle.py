@@ -4,14 +4,21 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """Rectangle class"""
+    """Rectangle class
+     Defines a rectangle object with
+    width, height and x, y coordinates
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
-        """instatiation function"""
+        """instatiation function
+        Constructor
+        Call parent class constructor and initialises
+        width, height, x and y values
+
+        """
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
-
         super().__init__(id)
 
         @property
