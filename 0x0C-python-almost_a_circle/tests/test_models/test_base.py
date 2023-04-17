@@ -1,6 +1,7 @@
 import unittest
 from models.base import Base
 
+
 class TestBase(unittest.TestCase):
     def test_idnone(self):
         b1 = Base()
@@ -13,4 +14,3 @@ class TestBase(unittest.TestCase):
         b5 = Base(-5)
         self.assertEqual(b3.id, 12)
         self.assertEqual(b5.id, -5)
-
