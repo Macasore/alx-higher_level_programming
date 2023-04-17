@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-"""Base module """
+"""Base module task """
 
 
 class Base:
+    """Base class
+    This is the Base class
+    """
     __nb_objects = 0
 
     def __init__(self, id=None):
