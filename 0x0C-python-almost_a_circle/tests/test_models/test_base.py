@@ -5,6 +5,7 @@ from models.base import Base
 
 
 class TestBase(unittest.TestCase):
+
     def test_id(self):
         """test_id function
         Tests that the logic for id works as
