@@ -84,16 +84,17 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """display
-        prints the rectangle instance with the # character
+        """display function
+        Prints the rectangle to stdout using #
         """
-        if self.__y > 0:
-            for i in range(self.__y):
-                print()
-        for i in range(self.height):
-            if self.__x > 0:
-                print(" " * self.__x, end="")
-            print("#" * self.__width)
+
+        # Single row of entire rectangle
+        row = f"{self.__x * ' '}{self.__width * '#'}\n"
+
+        # Full rectangle with position factored in
+        result = "{}{}".format(self.__y * "\n", row * self.__height)
+
+        print(result, end="")
 
     def update(self, *args):
         if len(args) == 1:
