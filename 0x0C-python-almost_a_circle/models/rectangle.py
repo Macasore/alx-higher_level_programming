@@ -93,6 +93,19 @@ class Rectangle(Base):
             print(" " * self.__x, end="")
             print("#" * self.__width)
 
+    def update(self, *args):
+        if len(args) == 1:
+            for i in args:
+                self.id = i
+        elif len(args) == 2:
+            self.id, self.__width = args
+        elif len(args) == 3:
+            self.id, self.__width, self.__height = args
+        elif len(args) == 4:
+            self.id, self.__width, self.__height, self.__x = args
+        else:
+            self.id, self.__width, self.__height, self.__x, self.__y = args
+
     def __str__(self):
         return ("[Rectangle] ("+str(self.id)+") "+str(self.__x)+"/"
                 + str(self.__y)+" - "+str(self.__width)+"/"
