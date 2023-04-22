@@ -87,8 +87,5 @@ class Rectangle(Base):
         """display
         prints the rectangle instance with the # character
         """
-        square = ""
-        for i in range(self.__height):
-            row = "#" * self.__width
-            square += row + "\n"
-        print(square, end="")
+        for i in range(self.height):
+            print("#" * self.__width)
