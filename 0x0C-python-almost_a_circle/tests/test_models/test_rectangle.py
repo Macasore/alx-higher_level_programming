@@ -161,6 +161,22 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect7.area(), 6)
         self.assertEqual(rect8.area(), 56)
 
+    def test_display(self):
+        """test_display
+        tests the display function
+        """
+        r2 = Rectangle(2, 2)
+        expected = "##\n##\n"
+        self.assertEqual(r2.display(), expected)
+
+        r3 = Rectangle(4, 6, 2)
+        expected = "####\n####\n####\n####\n####\n####\n"
+        self.assertEqual(r3.display(), expected)
+
+        r4 = Rectangle(2, 3, 3, 3)
+        expected = "##\n##\n##\n"
+        self.assertEqual(r4.display(), expected)
+
 
 if __name__ == "__main__":
     unittest.main()
