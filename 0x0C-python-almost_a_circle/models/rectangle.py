@@ -87,12 +87,10 @@ class Rectangle(Base):
         """display
         prints the rectangle instance with the # character
         """
-        if self.__y > 0:
-            for i in range(self.__y):
-                print()
+        for i in range(self.__y):
+            print()
         for i in range(self.height):
-            if self.__x > 0:
-                print(" " * self.__x, end="")
+            print(" " * self.__x, end="")
             print("#" * self.__width)
 
     def update(self, *args):
