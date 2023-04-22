@@ -23,7 +23,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(base_2.id, 8)
         self.assertEqual(base_3.id, 2)
 
-
     def test_idnone(self):
         """test_idnone for empty id argument"""
         base_4 = Base()

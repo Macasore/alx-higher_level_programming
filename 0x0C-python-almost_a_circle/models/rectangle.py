@@ -15,10 +15,10 @@ class Rectangle(Base):
         width, height, x and y values
 
         """
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
@@ -29,6 +29,10 @@ class Rectangle(Base):
     @width.setter
     def width(self, val):
         """width setter"""
+        if type(val) != int:
+            raise TypeError("width must be an integer")
+        if val <= 0:
+            raise ValueError("width must be > 0")
         self.__width = val
 
     @property
@@ -39,6 +43,10 @@ class Rectangle(Base):
     @height.setter
     def height(self, hei):
         """height setter"""
+        if type(hei) != int:
+            raise TypeError("height must be an integer")
+        if hei <= 0:
+            raise ValueError("height must be > 0")
         self.__height = hei
 
     @property
@@ -49,6 +57,10 @@ class Rectangle(Base):
     @x.setter
     def x(self, val):
         """x setter"""
+        if type(val) != int:
+            raise TypeError("x must be an integer")
+        if val < 0:
+            raise ValueError("x must be >= 0")
         self.__x = val
 
     @property
@@ -59,4 +71,8 @@ class Rectangle(Base):
     @y.setter
     def y(self, te):
         """y setter"""
+        if type(te) != int:
+            raise TypeError("y must be an integer")
+        if te < 0:
+            raise ValueError("y must be >= 0")
         self.__y = te
