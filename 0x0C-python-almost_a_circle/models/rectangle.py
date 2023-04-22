@@ -1,164 +1,114 @@
 #!/usr/bin/python3
-""" Rectangle Module
-"""
+"""rectangle module"""
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Rectangle Class
-    Defines a rectangle object with
+    """Rectangle class
+     Defines a rectangle object with
     width, height and x, y coordinates
     """
-
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ Constructor
+        """instatiation function
+        Constructor
         Call parent class constructor and initialises
         width, height, x and y values
+
         """
-        super().__init__(id)
-        self.x = x
-        self.y = y
         self.width = width
         self.height = height
+        self.x = x
+        self.y = y
+        super().__init__(id)
 
     @property
     def width(self):
-        """Getter function for __width property
-        """
+        """width getter"""
         return self.__width
 
     @width.setter
-    def width(self, value):
-        """Setter function for __width property
-        Validates width value
-        """
-        if not isinstance(value, int):
+    def width(self, val):
+        """width setter"""
+        if type(val) != int:
             raise TypeError("width must be an integer")
-
-        if value <= 0:
+        if val <= 0:
             raise ValueError("width must be > 0")
-
-        self.__width = value
+        self.__width = val
 
     @property
     def height(self):
-        """Getter function for __height property
-        """
+        """height getter"""
         return self.__height
 
     @height.setter
-    def height(self, value):
-        """Setter function for __height property
-        Validates and sets the height value
-        """
-        if not isinstance(value, int):
+    def height(self, hei):
+        """height setter"""
+        if type(hei) != int:
             raise TypeError("height must be an integer")
-
-        if value <= 0:
+        if hei <= 0:
             raise ValueError("height must be > 0")
-
-        self.__height = value
+        self.__height = hei
 
     @property
     def x(self):
-        """Getter function for __x property
-        """
+        """x getter"""
         return self.__x
 
     @x.setter
-    def x(self, value):
-        """Setter function for __x property
-        Validates x value
-        """
-        if not isinstance(value, int):
+    def x(self, val):
+        """x setter"""
+        if type(val) != int:
             raise TypeError("x must be an integer")
-
-        if value < 0:
+        if val < 0:
             raise ValueError("x must be >= 0")
-
-        self.__x = value
+        self.__x = val
 
     @property
     def y(self):
-        """Getter function for __y property
-        """
+        """y getter"""
         return self.__y
 
     @y.setter
-    def y(self, value):
-        """Setter function for __y property
-        Validates y value
-        """
-        if not isinstance(value, int):
+    def y(self, te):
+        """y setter"""
+        if type(te) != int:
             raise TypeError("y must be an integer")
-
-        if value < 0:
+        if te < 0:
             raise ValueError("y must be >= 0")
-
-        self.__y = value
-
-    # Public instance Methods
+        self.__y = te
 
     def area(self):
-        """area function
-        Returns the area of the rectangle instance
+        """this area function is for calculating
+        the area of the rectangle
         """
-
         return self.__width * self.__height
 
     def display(self):
-        """display function
-        Prints the rectangle to stdout using #
+        """display
+        prints the rectangle instance with the # character
         """
+        if self.__y > 0:
+            for i in range(self.__y):
+                print()
+        for i in range(self.height):
+            if self.__x > 0:
+                print(" " * self.__x, end="")
+            print("#" * self.__width)
 
-        # Single row of entire rectangle
-        row = f"{self.__x * ' '}{self.__width * '#'}\n"
+    def update(self, *args):
+        if len(args) == 1:
+            for i in args:
+                self.id = i
+        elif len(args) == 2:
+            self.id, self.__width = args
+        elif len(args) == 3:
+            self.id, self.__width, self.__height = args
+        elif len(args) == 4:
+            self.id, self.__width, self.__height, self.__x = args
+        else:
+            self.id, self.__width, self.__height, self.__x, self.__y = args
 
-        # Full rectangle with position factored in
-        result = "{}{}".format(self.__y * "\n", row * self.__height)
-
-        print(result, end="")
-
-    def __str__(self) -> str:
-        """string representation function
-        """
-
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.__x, self.__y, self.__width, self.__height)
-
-    def update(self, *args, **kwargs):
-        """update function
-        Updates rectangle attributes in the order
-        id, width, height, x, y
-        keyword args are also allowed
-        """
-        # List of instance attributes in the order they are passed as *args
-        attr_keys = ["id", "width", "height", "x", "y"]
-
-        # Set attributes based on the no keyword args
-        for index, arg in enumerate(args):
-            self.__setattr__(attr_keys[index], arg)
-
-        # If args is not empty, skip kwargs
-        if len(args) != 0:
-            return
-
-        for key, value in kwargs.items():
-            if key in attr_keys:
-                self.__setattr__(key, value)
-
-    def to_dictionary(self):
-        """to_dictionary function
-        Converts rectangle instance to a
-        dictionary representation of the instance
-        """
-        # Attribute keys
-        attr_keys = ["id", "width", "height", "x", "y"]
-
-        # Define new dictionary and assign keys with the corresponding values
-        dic = {}
-
-        for key in attr_keys:
-            dic[key] = self.__getattribute__(key)
-
-        return dic
+    def __str__(self):
+        return ("[Rectangle] ("+str(self.id)+") "+str(self.__x)+"/"
+                + str(self.__y)+" - "+str(self.__width)+"/"
+                + str(self.__height))
