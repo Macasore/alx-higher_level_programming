@@ -152,6 +152,15 @@ class TestRectangle(unittest.TestCase):
         rect5.y = 0
         self.assertEqual(rect5.y, 0)
 
+    def test_area(self):
+        """test_area
+        tests the area function
+        """
+        rect7 = Rectangle(3, 2)
+        rect8 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(rect7.area(), 6)
+        self.assertEqual(rect8.area(), 56)
+
 
 if __name__ == "__main__":
     unittest.main()
