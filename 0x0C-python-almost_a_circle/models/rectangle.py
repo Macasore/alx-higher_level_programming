@@ -96,6 +96,9 @@ class Rectangle(Base):
             print("#" * self.__width)
 
     def update(self, *args):
+        """ update
+        updates the attributes of a rectangle instance
+        """
         if len(args) == 1:
             for i in args:
                 self.id = i
@@ -109,6 +112,9 @@ class Rectangle(Base):
             self.id, self.__width, self.__height, self.__x, self.__y = args
 
     def __str__(self):
+        """str
+        returns a string representation of the rectangle class
+        """
         return ("[Rectangle] ("+str(self.id)+") "+str(self.__x)+"/"
                 + str(self.__y)+" - "+str(self.__width)+"/"
                 + str(self.__height))
