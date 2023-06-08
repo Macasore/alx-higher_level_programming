@@ -165,17 +165,29 @@ class TestRectangle(unittest.TestCase):
         """test_display
         tests the display function
         """
+        from io import StringIO
+        import sys
+
         r2 = Rectangle(2, 2)
+        file = StringIO()
+        sys.stdout = file
+        r2.display()
         expected = "##\n##\n"
-        self.assertEqual(r2.display(), expected)
+        self.assertEqual(file.getvalue(), expected)
 
         r3 = Rectangle(4, 6, 2)
-        expected = "####\n####\n####\n####\n####\n####\n"
-        self.assertEqual(r3.display(), expected)
+        file = StringIO()
+        sys.stdout = file
+        r3.display()
+        expected = "  ####\n  ####\n  ####\n  ####\n  ####\n  ####\n"
+        self.assertEqual(file.getvalue(), expected)
 
         r4 = Rectangle(2, 3, 3, 3)
-        expected = "##\n##\n##\n"
-        self.assertEqual(r4.display(), expected)
+        file = StringIO()
+        sys.stdout = file
+        r4.display()
+        expected = "\n\n\n   ##\n   ##\n   ##\n"
+        self.assertEqual(file.getvalue(), expected)
 
 
 if __name__ == "__main__":

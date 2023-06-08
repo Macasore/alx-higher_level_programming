@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-"""4-square module
+"""5-square module
 
 This module contains a class definition of a square
-with a private size attribute
+with a private attribute
 
 """
 
@@ -20,7 +20,7 @@ class Square:
         Args:
              size (int): the size of the square
         """
-        self.__size = size
+        self.size = size
 
     @property
     def size(self):
