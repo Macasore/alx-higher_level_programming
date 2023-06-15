@@ -1,22 +1,11 @@
 #!/usr/bin/node
-const process = require('process');
-const argv = process.argv;
-let largest = 0;
-let secLargest;
+const args = process.argv;
 
-if (argv.length <= 2) {
-  console.log(largest);
-} else if (argv.length === 3) {
-  console.log(largest);
+const numbers = args.slice(2);
+
+if (numbers.length <= 1) {
+  console.log(0);
 } else {
-  for (let i = 2; i < argv.length; i++) {
-    const convert = parseInt(argv[i]);
-    if (convert > largest) {
-      secLargest = largest;
-      largest = convert;
-    } else {
-      continue;
-    }
-  }
-  console.log(secLargest);
+  numbers.sort((a, b) => b - a);
+  console.log(Number(numbers[1]));
 }
