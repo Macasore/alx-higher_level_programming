@@ -15,7 +15,7 @@ if __name__ == "__main__":
     }
     db = MySQLdb.connect(**connections)
     cur = db.cursor()
-    cur.execute("SELECT id, name FROM states WHERE name LIKE 'N%' ")
+    cur.execute("SELECT id, name FROM states WHERE name LIKE binary 'N%' ")
     rows = cur.fetchall()
 
     for row in rows:
