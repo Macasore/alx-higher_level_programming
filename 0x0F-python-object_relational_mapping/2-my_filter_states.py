@@ -16,7 +16,7 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
     db = MySQLdb.connect(**connections)
     cur = db.cursor()
-    query = ("SELECT * from states WHERE name='{}' ORDER BY states.id ASC"
+    query = ("SELECT * from states WHERE name like '{}' ORDER BY states.id ASC"
              .format(sys.argv[4]))
     cur.execute(query)
     rows = cur.fetchall()
