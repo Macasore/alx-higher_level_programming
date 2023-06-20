@@ -18,10 +18,11 @@ if __name__ == "__main__":
     cur = db.cursor()
     state_name = sys.argv[4]
     query = "SELECT name from cities WHERE cities.state_id\
-        =(SELECT id from states where name=%s) ORDER BY cities.id ASC"
+        =(SELECT id from states where name=%s) ORDER BY cities.id"
     cur.execute(query, (state_name, ))
     rows = cur.fetchall()
+    value = []
     for row in rows:
         for col in row:
-            print(col, end=" ")
-    print()
+            value.append(col)
+    print(', '.join(value))
