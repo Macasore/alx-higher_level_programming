@@ -19,3 +19,5 @@ if __name__ == "__main__":
     else:
         print("Nothing")
         print()
+        
+    session.close()
